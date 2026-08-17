@@ -1,0 +1,12 @@
+node_modules/
+.pnpm-store/
+tmp/
+
+dist/
+dist-*/
+
+*.log
+*.corrupt.bak
+
+.DS_Store
+Thumbs.db
