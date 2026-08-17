@@ -1,0 +1,149 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import gsap from "gsap";
+import "./DepthCarousel.css";
+
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+const normalizeItem = (item) => typeof item === "string" ? { image: item, alt: "" } : item;
+
+export default function DepthCarousel({
+  items = [], cardWidth = 300, cardHeight = 380, radius = 5,
+  tint = "#05060a", depth = 220, spread = 90, tilt = 22,
+  tiltDirection = "right", perspective = 1400, visibleCards = 4,
+  falloff = 0.2, blur = 6, duration = 950, ease = "power3.out",
+  loop = true, showControls = true, showIndicators = false, onChange,
+  autoPlay = true, autoPlayDelay = 4200, className = ""
+}) {
+  const data = useMemo(() => items.map(normalizeItem), [items]);
+  const rootRef = useRef(null);
+  const cardRefs = useRef([]);
+  const overlayRefs = useRef([]);
+  const posRef = useRef(0);
+  const focusRef = useRef(0);
+  const tweenRef = useRef(null);
+  const scaleRef = useRef(1);
+  const reducedRef = useRef(false);
+  const onChangeRef = useRef(onChange);
+  const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+  const [manualReset, setManualReset] = useState(0);
+  const configRef = useRef({});
+
+  onChangeRef.current = onChange;
+  configRef.current = { count: data.length, cardWidth, depth, spread, tilt, tiltDirection, visibleCards, falloff, blur, duration, ease, loop };
+
+  const layout = useCallback((position) => {
+    const config = configRef.current;
+    if (!config.count) return;
+    const direction = config.tiltDirection === "left" ? -1 : 1;
+    for (let index = 0; index < config.count; index += 1) {
+      const card = cardRefs.current[index];
+      if (!card) continue;
+      let distance = index - position;
+      if (config.loop && config.count > 1) {
+        distance = ((distance % config.count) + config.count) % config.count;
+        if (distance > config.count / 2) distance -= config.count;
+      }
+      const absoluteDistance = Math.abs(distance);
+      const shown = absoluteDistance <= config.visibleCards + 0.5;
+      const translateZ = -config.depth * absoluteDistance;
+      const translateX = direction * config.spread * distance;
+      const rotateY = direction * config.tilt * clamp(distance, -1, 1);
+      const cardScale = Math.max(0.72, 1 - absoluteDistance * 0.055);
+      let opacity = Math.max(0.14, 1 - absoluteDistance * 0.14);
+      if (!shown) opacity = 0;
+      const brightness = Math.max(0.15, 1 - absoluteDistance * config.falloff);
+      const blurValue = config.blur ? Math.min(config.blur, (absoluteDistance / Math.max(1, config.visibleCards)) * config.blur) : 0;
+      card.style.transform = `translate3d(calc(-50% + ${translateX.toFixed(2)}px), -50%, ${translateZ.toFixed(2)}px) rotateY(${rotateY.toFixed(3)}deg) scale(${(scaleRef.current * cardScale).toFixed(4)})`;
+      card.style.opacity = opacity.toFixed(3);
+      card.style.filter = `brightness(${brightness.toFixed(3)}) blur(${blurValue.toFixed(2)}px)`;
+      card.style.zIndex = String(Math.round(2000 - absoluteDistance * 20));
+      card.style.pointerEvents = shown && opacity > 0.05 ? "auto" : "none";
+      const overlay = overlayRefs.current[index];
+      if (overlay) overlay.style.opacity = clamp(absoluteDistance * config.falloff * 1.25, 0, 0.86).toFixed(3);
+    }
+  }, []);
+
+  const tweenTo = useCallback((target, animate = true) => {
+    tweenRef.current?.kill();
+    const config = configRef.current;
+    const proxy = { position: posRef.current };
+    tweenRef.current = gsap.to(proxy, {
+      position: target,
+      duration: animate && !reducedRef.current ? config.duration / 1000 : 0,
+      ease: config.ease,
+      onUpdate: () => { posRef.current = proxy.position; layout(proxy.position); },
+      onComplete: () => {
+        if (config.count) posRef.current = ((posRef.current % config.count) + config.count) % config.count;
+        layout(posRef.current);
+      }
+    });
+  }, [layout]);
+
+  const setFocus = useCallback((rawIndex, animate = true) => {
+    const config = configRef.current;
+    if (!config.count) return;
+    const index = config.loop ? ((rawIndex % config.count) + config.count) % config.count : clamp(rawIndex, 0, config.count - 1);
+    let delta = index - posRef.current;
+    if (config.loop && config.count > 1) {
+      delta = ((delta % config.count) + config.count) % config.count;
+      if (delta > config.count / 2) delta -= config.count;
+    }
+    tweenTo(posRef.current + delta, animate);
+    focusRef.current = index;
+    setActive(index);
+    onChangeRef.current?.(index, data[index]);
+  }, [data, tweenTo]);
+
+  const navigateBy = useCallback((step, manual = false) => {
+    if (expanded) return;
+    if (manual) {
+      tweenRef.current?.kill();
+      setManualReset((value) => value + 1);
+    }
+    setFocus(focusRef.current + step);
+  }, [expanded, setFocus]);
+
+  const toggleExpanded = useCallback((index = focusRef.current) => {
+    tweenRef.current?.kill();
+    if (!expanded) {
+      setFocus(index, false);
+      setExpanded(true);
+    } else {
+      setExpanded(false);
+    }
+    setManualReset((value) => value + 1);
+  }, [expanded, setFocus]);
+
+  useEffect(() => {
+    reducedRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const root = rootRef.current;
+    if (!root) return undefined;
+    const observer = new ResizeObserver(([entry]) => {
+      const needed = cardWidth + 40;
+      scaleRef.current = clamp(entry.contentRect.width / needed, 0.4, 1);
+      layout(posRef.current);
+    });
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, [cardWidth, spread, layout]);
+
+  useEffect(() => { layout(posRef.current); }, [layout, data.length, depth, spread, tilt, visibleCards, falloff, blur]);
+  useEffect(() => {
+    if (!autoPlay || expanded || reducedRef.current || data.length < 2) return undefined;
+    const timer = window.setTimeout(() => navigateBy(1), autoPlayDelay);
+    return () => window.clearTimeout(timer);
+  }, [autoPlay, autoPlayDelay, active, data.length, expanded, manualReset, navigateBy]);
+  useEffect(() => () => { tweenRef.current?.kill(); }, []);
+
+  return <div ref={rootRef} className={`depth-carousel${expanded ? " is-expanded" : ""} ${className}`.trim()} style={{ "--dc-perspective": `${perspective}px` }} role="group" aria-roledescription="carousel" aria-label="其他作品轮播">
+    <div className="depth-carousel__stage">
+      {data.map((item, index) => <div key={item.label || index} className={`depth-carousel__card${active === index ? " is-active" : ""}`} ref={(element) => { cardRefs.current[index] = element; }} style={{ width: cardWidth, height: cardHeight, borderRadius: radius }} aria-roledescription="slide" aria-label={`${index + 1} / ${data.length}`} aria-hidden={active !== index}>
+        {item.image ? <img className="depth-carousel__img" src={item.image} alt={item.alt || ""} draggable={false} /> : <span className="depth-carousel__placeholder"><b>{String(index + 1).padStart(2, "0")}</b><small>{item.label}</small></span>}
+        <span className="depth-carousel__tint" ref={(element) => { overlayRefs.current[index] = element; }} style={{ background: tint }} />
+        <button type="button" className="depth-carousel__zoom" aria-label={expanded && active === index ? "缩小还原" : "放大图片"} title={expanded && active === index ? "缩小还原" : "放大图片"} onClick={(event) => { event.stopPropagation(); toggleExpanded(index); }}>{expanded && active === index ? "⤡" : "⤢"}</button>
+      </div>)}
+    </div>
+    {showControls && data.length > 1 && !expanded && <><button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}>←</button><button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}>→</button></>}
+    {showIndicators && <div className="depth-carousel__dots">{data.map((item, index) => <button key={item.label || index} type="button" aria-label={`转到作品 ${index + 1}`} className={`depth-carousel__dot${active === index ? " is-active" : ""}`} onClick={() => setFocus(index)} />)}</div>}
+  </div>;
+}

@@ -1,0 +1,25 @@
+.depth-carousel { position: relative; width: 100%; height: 100%; min-height: 320px; display: flex; align-items: center; justify-content: center; perspective: var(--dc-perspective, 1400px); perspective-origin: 50% 50%; touch-action: pan-y; outline: none; user-select: none; }
+.depth-carousel:focus-visible { outline: 1px solid rgba(255,255,255,.45); outline-offset: -1px; }
+.depth-carousel__stage { position: absolute; inset: 0; transform-style: preserve-3d; }
+.depth-carousel__card { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); transform-origin: center; overflow: hidden; background: #707070; box-shadow: 0 30px 60px -20px rgba(0,0,0,.65), 0 8px 20px -10px rgba(0,0,0,.5); will-change: transform, opacity, filter; }
+.depth-carousel__img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.depth-carousel__placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 22px; background: linear-gradient(145deg,#8b8b8b,#606060); color: #c8c8c8; }
+.depth-carousel__placeholder b { align-self: center; margin: auto; font-size: 82px; letter-spacing: -.07em; }
+.depth-carousel__placeholder small { font-family: "Poppins", Arial, sans-serif; font-size: 9px; letter-spacing: .1em; }
+.depth-carousel__tint { position: absolute; inset: 0; opacity: 0; pointer-events: none; mix-blend-mode: multiply; }
+.depth-carousel__zoom { position: absolute; right: 14px; bottom: 14px; z-index: 5; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(8,8,8,.58); color: #fff; font-size: 19px; cursor: pointer; -webkit-backdrop-filter: blur(18px) saturate(145%); backdrop-filter: blur(18px) saturate(145%); transition: transform .2s ease, background .2s ease; }
+.depth-carousel__zoom:hover { background: rgba(28,31,40,.9); transform: scale(1.06); }
+.depth-carousel.is-expanded { position: fixed; inset: 0; z-index: 6000; min-height: 100vh; background: rgba(0,0,0,.94); }
+.depth-carousel.is-expanded .depth-carousel__card { opacity: 0 !important; pointer-events: none !important; }
+.depth-carousel.is-expanded .depth-carousel__card.is-active { width: min(1280px, calc(100vw - 40px)) !important; height: auto !important; aspect-ratio: 2 / 1; opacity: 1 !important; filter: none !important; transform: translate3d(-50%,-50%,0) !important; pointer-events: auto !important; }
+.depth-carousel.is-expanded .depth-carousel__card.is-active .depth-carousel__tint { opacity: 0 !important; }
+.depth-carousel__arrow { position: absolute; top: 50%; z-index: 3000; width: 46px; height: 46px; display: grid; place-items: center; transform: translateY(-50%); border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: rgba(8,8,8,.54); box-shadow: 0 12px 34px rgba(0,0,0,.18); color: #fff; -webkit-backdrop-filter: blur(18px) saturate(145%); backdrop-filter: blur(18px) saturate(145%); transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.depth-carousel__arrow:hover { background: rgba(28,31,40,.85); border-color: rgba(255,255,255,.4); }
+.depth-carousel__arrow:active { transform: translateY(-50%) scale(.94); }
+.depth-carousel__arrow--prev { left: var(--pad); }
+.depth-carousel__arrow--next { right: var(--pad); }
+.depth-carousel__dots { position: absolute; bottom: 16px; left: 50%; z-index: 3000; display: flex; gap: 8px; transform: translateX(-50%); }
+.depth-carousel__dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.32); }
+.depth-carousel__dot.is-active { width: 20px; border-radius: 99px; background: #fff; }
+@media (max-width:760px) { .depth-carousel__arrow--prev { left: 12px; } .depth-carousel__arrow--next { right: 12px; } .depth-carousel__placeholder b { font-size: 58px; } .depth-carousel__zoom { width: 38px; height: 38px; right: 10px; bottom: 10px; } }
+@media (prefers-reduced-motion:reduce) { .depth-carousel__card { will-change: auto; } .depth-carousel__arrow,.depth-carousel__dot { transition: none; } }
