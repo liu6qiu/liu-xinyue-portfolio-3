@@ -13,7 +13,7 @@ export default function DepthCarousel({
   falloff = 0.2, blur = 6, duration = 950, ease = "power3.out",
   loop = true, showControls = true, showIndicators = false, onChange,
   autoPlay = true, autoPlayDelay = 4200, className = "",
-  expandIcon, collapseIcon
+  expandIcon, collapseIcon, previousIcon, nextIcon
 }) {
   const data = useMemo(() => items.map(normalizeItem), [items]);
   const rootRef = useRef(null);
@@ -192,7 +192,7 @@ export default function DepthCarousel({
         </button>
       </div>)}
     </div>
-    {showControls && data.length > 1 && !expanded && <><button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}>←</button><button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}>→</button></>}
+    {showControls && data.length > 1 && !expanded && <><button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}><img src={previousIcon} alt="" aria-hidden="true" draggable={false} /></button><button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}><img src={nextIcon} alt="" aria-hidden="true" draggable={false} /></button></>}
     {showIndicators && <div className="depth-carousel__dots">{data.map((item, index) => <button key={item.label || index} type="button" aria-label={`转到作品 ${index + 1}`} className={`depth-carousel__dot${active === index ? " is-active" : ""}`} onClick={() => setFocus(index)} />)}</div>}
     {expanded && createPortal(<div className={`depth-carousel__lightbox${closing ? " is-closing" : ""}`} style={{ "--lightbox-from-x": `${transitionOrigin.x}px`, "--lightbox-from-y": `${transitionOrigin.y}px`, "--lightbox-from-scale-x": transitionOrigin.scaleX, "--lightbox-from-scale-y": transitionOrigin.scaleY }} role="dialog" aria-modal="true" aria-label={`放大查看${data[active]?.alt ? `：${data[active].alt}` : "图片"}`} onClick={(event) => event.target === event.currentTarget && toggleExpanded(active)}>
       <div className="depth-carousel__lightbox-card">
