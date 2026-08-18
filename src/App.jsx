@@ -1,20 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import DepthCarousel from "./DepthCarousel";
 
+const basePath = import.meta.env.BASE_URL;
+const pagePath = (path = "") => `${basePath}${path.replace(/^\/+/, "")}`;
+const assetPath = (path) => pagePath(`assets/${path.replace(/^\/+/, "")}`);
+
 const casePages = (folder, start, end) =>
-  Array.from({ length: end - start + 1 }, (_, index) => `/assets/cases/${folder}/page-${String(start + index).padStart(2, "0")}.jpg`);
+  Array.from({ length: end - start + 1 }, (_, index) => assetPath(`cases/${folder}/page-${String(start + index).padStart(2, "0")}.jpg`));
 
 const projects = [
-  { id: "bzm", no: "01", title: "BZM.", subtitle: "让多元户外场景拥有统一表达", scope: "以“连接户外与生活”为核心，统一多品类、多渠道视觉表达", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "应用延展", "社媒KV", "活动物料"], cover: "/assets/bzm-featured-cover.png", cursor: "/assets/bzm-hover-cursor.png", color: "#315cff", gallery: casePages("bzm", 5, 24) },
-  { id: "jsc", no: "02", title: "JSC EXP", subtitle: "打破制造品牌的传统边界", scope: "重构品牌定位与视觉语言，推动企业从代工走向自主品牌", logoHeight: "80px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌升级", "VI规范", "包装设计", "应用延展", "空间展厅"], cover: "/assets/jsc-featured-cover.png", coverPosition: "center bottom", cursor: "/assets/jsc-hover-cursor.png", color: "#2ce0aa", gallery: casePages("jsc", 26, 51) },
-  { id: "soniq", no: "03", title: "SONIQ", subtitle: "品牌主张的IP化识别", scope: "以功能、态度与识别度，塑造新一代户外服饰品牌", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "服装图案", "包装设计", "社媒KV"], cover: "/assets/soniq-featured-cover.png", cursor: "/assets/soniq-hover-cursor.png", color: "#f7f7f2", gallery: casePages("soniq", 53, 60) },
+  { id: "bzm", no: "01", title: "BZM.", subtitle: "让多元户外场景拥有统一表达", scope: "以“连接户外与生活”为核心，统一多品类、多渠道视觉表达", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "应用延展", "社媒KV", "活动物料"], cover: assetPath("bzm-featured-cover.png"), cursor: assetPath("bzm-hover-cursor.png"), color: "#315cff", gallery: casePages("bzm", 5, 24) },
+  { id: "jsc", no: "02", title: "JSC EXP", subtitle: "打破制造品牌的传统边界", scope: "重构品牌定位与视觉语言，推动企业从代工走向自主品牌", logoHeight: "80px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌升级", "VI规范", "包装设计", "应用延展", "空间展厅"], cover: assetPath("jsc-featured-cover.png"), coverPosition: "center bottom", cursor: assetPath("jsc-hover-cursor.png"), color: "#2ce0aa", gallery: casePages("jsc", 26, 51) },
+  { id: "soniq", no: "03", title: "SONIQ", subtitle: "品牌主张的IP化识别", scope: "以功能、态度与识别度，塑造新一代户外服饰品牌", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "服装图案", "包装设计", "社媒KV"], cover: assetPath("soniq-featured-cover.png"), cursor: assetPath("soniq-hover-cursor.png"), color: "#f7f7f2", gallery: casePages("soniq", 53, 60) },
 ];
 
 function Arrow({ down = false }) { return <span aria-hidden="true">{down ? "↓" : "↗"}</span>; }
 
 export function App() {
   const [openProject, setOpenProject] = useState(null);
-  const [aboutPageOpen, setAboutPageOpen] = useState(() => window.location.pathname === "/about-me");
+  const [aboutPageOpen, setAboutPageOpen] = useState(() => window.location.pathname === pagePath("about-me"));
   const [menuOpen, setMenuOpen] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
@@ -80,18 +84,18 @@ export function App() {
   }, [openProject, aboutPageOpen, menuOpen]);
 
   useEffect(() => {
-    const onPopState = () => setAboutPageOpen(window.location.pathname === "/about-me");
+    const onPopState = () => setAboutPageOpen(window.location.pathname === pagePath("about-me"));
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   const openAboutPage = () => {
-    window.history.pushState({}, "", "/about-me");
+    window.history.pushState({}, "", pagePath("about-me"));
     setAboutPageOpen(true);
   };
 
   const closeAboutPage = () => {
-    window.history.pushState({}, "", "/");
+    window.history.pushState({}, "", basePath);
     setAboutPageOpen(false);
   };
 
@@ -169,7 +173,7 @@ export function App() {
           <p>我能够参与从前期分析、概念提案、视觉识别到品牌应用的完整流程，也具备项目统筹与团队协作经验。我的优势不是只做某一种风格，而是面对不同的品牌命题，快速找到合适的视觉语言，并把它持续推进到落地。</p>
           <p>目前希望加入一个<strong>重视品牌长期价值、设计判断与落地质量的团队</strong>，在真实业务中，和不同角色一起把品牌想清楚、做完整，也做得更好。</p>
           <div className="about-links">
-            <a href="/刘新月-品牌设计作品集.pdf" target="_blank" rel="noreferrer">下载 PDF 作品集 <Arrow /></a>
+            <a href={assetPath("刘新月-品牌设计作品集.pdf")} target="_blank" rel="noreferrer">下载 PDF 作品集 <Arrow /></a>
             <a href="mailto:659965306@qq.com">发送邮件 <Arrow /></a>
           </div>
         </div>
@@ -234,7 +238,7 @@ function AboutPage({ onClose }) {
         </div>
         <div className="profile-demo-images profile-marquee" aria-label="工作与学习现场">
           <div className="profile-marquee-track">
-            {[0, 1].map((copy) => <div className="profile-marquee-group profile-hero-image-group" key={copy} aria-hidden={copy === 1}><img src="/assets/about/hero-images-group.png" alt={copy === 0 ? "工作与学习现场" : ""} /></div>)}
+            {[0, 1].map((copy) => <div className="profile-marquee-group profile-hero-image-group" key={copy} aria-hidden={copy === 1}><img src={assetPath("about/hero-images-group.png")} alt={copy === 0 ? "工作与学习现场" : ""} /></div>)}
           </div>
         </div>
       </section>
@@ -253,7 +257,7 @@ function AboutPage({ onClose }) {
           <div className="profile-demo-skill-list"><p>本命工具（日常中最常用的设计工具）　｜ <b>FIGMA</b></p><p>专业设计　｜ <b>PS、AI</b></p><p>动效及剪辑　｜ <b>AE、PR、剪映</b></p><p>建模及渲染　｜ <b>RHINO、KEYSHOT、C4D</b></p><p>AIGC　｜ <b>CODEX、GEMINI、MIDJOURNEY</b></p></div>
           <div className="profile-demo-tools profile-marquee" aria-label="常用设计软件">
             <div className="profile-marquee-track">
-              {[0, 1].map((copy) => <div className="profile-marquee-group profile-tool-group" key={copy} aria-hidden={copy === 1}><img src="/assets/about/tools-group.png" alt={copy === 0 ? "常用设计软件与 AI 工具" : ""} /></div>)}
+              {[0, 1].map((copy) => <div className="profile-marquee-group profile-tool-group" key={copy} aria-hidden={copy === 1}><img src={assetPath("about/tools-group.png")} alt={copy === 0 ? "常用设计软件与 AI 工具" : ""} /></div>)}
             </div>
           </div>
         </div>
@@ -264,7 +268,7 @@ function AboutPage({ onClose }) {
         <div className="profile-demo-section-body"><p className="profile-demo-daily-copy">骑行、徒步、普拉提、扫街，给爱猫铲屎，<br />对很多事情充满好奇与兴趣，爱玩也爱冲。</p></div>
         <div className="profile-demo-daily-images profile-marquee" aria-label="日常生活影像">
           <div className="profile-marquee-track">
-            {[0, 1].map((copy) => <div className="profile-marquee-group profile-daily-image-group" key={copy} aria-hidden={copy === 1}>{[["portrait-hike.jpg","徒步"],["bike-sunset.jpg","骑行"],["group-ride.jpg","结伴骑行"],["pilates.jpg","普拉提"],["road-run.jpg","户外运动"]].map(([name, alt]) => <img key={`${copy}-${name}`} src={`/assets/about/${name}`} alt={copy === 0 ? alt : ''} />)}</div>)}
+            {[0, 1].map((copy) => <div className="profile-marquee-group profile-daily-image-group" key={copy} aria-hidden={copy === 1}>{[["portrait-hike.jpg","徒步"],["bike-sunset.jpg","骑行"],["group-ride.jpg","结伴骑行"],["pilates.jpg","普拉提"],["road-run.jpg","户外运动"]].map(([name, alt]) => <img key={`${copy}-${name}`} src={assetPath(`about/${name}`)} alt={copy === 0 ? alt : ''} />)}</div>)}
           </div>
         </div>
       </section>
