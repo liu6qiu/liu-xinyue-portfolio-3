@@ -213,7 +213,16 @@ export function App() {
 }
 
 function OtherWorkDemo() {
-  const items = Array.from({ length: 9 }, (_, index) => ({ label: `OTHER WORK ${String(index + 1).padStart(2, "0")}`, alt: `其他作品 ${index + 1}` }));
+  const items = [
+    { image: assetPath("01-a2.png"), label: "OTHER WORK 01", alt: "其他作品 01：A2" },
+    { image: assetPath("02-xiancha.png"), label: "OTHER WORK 02", alt: "其他作品 02：鲜茶" },
+    { image: assetPath("03-mamamiya.png"), label: "OTHER WORK 03", alt: "其他作品 03：Mamamiya" },
+    { image: assetPath("04-super-syn.png"), label: "OTHER WORK 04", alt: "其他作品 04：Super Syn" },
+    { image: assetPath("05-alusso.png"), label: "OTHER WORK 05", alt: "其他作品 05：Alusso" },
+    { image: assetPath("06-vesta.png"), label: "OTHER WORK 06", alt: "其他作品 06：Vesta" },
+    { image: assetPath("07-forgood.png"), label: "OTHER WORK 07", alt: "其他作品 07：Forgood" },
+    { image: assetPath("08-huaye.png"), label: "OTHER WORK 08", alt: "其他作品 08：Huaye" },
+  ];
 
   return <section className="other-work" aria-labelledby="other-work-title">
     <div className="other-work-head" data-reveal>
