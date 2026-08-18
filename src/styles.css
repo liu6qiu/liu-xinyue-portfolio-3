@@ -89,9 +89,10 @@ img { display: block; width: 100%; }
 
 .about { padding: 9vh var(--pad); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.12fr .88fr; gap: 8vw; align-items: start; }
 .about-title h2 { margin: 5vh 0 0; font-size: clamp(52px, 6.6vw, 108px); line-height: .93; font-weight: 600; letter-spacing: -.073em; }
-.about-cta { width: 100px; height: 100px; margin-top: 46px; border: 1px solid #555; border-radius: 50%; display: grid; place-items: center; align-content: center; gap: 5px; font-size: 13px; transition: background .25s ease, border-color .25s ease, color .25s ease; }
-.about-cta span { font-size: 17px; }
-.about-cta:hover { border-color: var(--blue); background: var(--blue); color: #fff; }
+.cta-button { width: fit-content; min-height: 44px; padding: 0 20px; border: 1px solid #555; border-radius: 12px; display: inline-flex; align-items: center; justify-content: flex-start; gap: 11px; font-size: 14px; line-height: 1; transition: background .25s ease, border-color .25s ease, color .25s ease; }
+.cta-button img { width: auto; height: 1em; opacity: .9; }
+.about-cta { margin-top: 46px; }
+.cta-button:hover { border-color: var(--blue); background: var(--blue); color: #fff; }
 .about-copy { padding-top: 6vh; }
 .about-copy > p { max-width: 650px; margin: 0 0 38px; color: #a6a6a2; font-size: clamp(18px, 1.55vw, 26px); line-height: 1.72; letter-spacing: -.025em; text-align: justify; text-justify: inter-ideograph; }
 .about-copy strong { color: var(--white); font-weight: 800; }
@@ -102,12 +103,10 @@ img { display: block; width: 100%; }
 footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
 .footer-top { display: flex; justify-content: space-between; gap: 40px; }
 .footer-top p { margin: 0; color: var(--muted); font-size: 9px; letter-spacing: .11em; }
-.footer-cta { position: relative; display: block; }
+.footer-cta { position: relative; display: flex; flex-direction: column; align-items: flex-start; }
 .footer-cta h2 { max-width: 1220px; margin: 0; font-size: clamp(56px, 7.8vw, 126px); line-height: 1.08; font-weight: 600; letter-spacing: -.065em; }
 .footer-cta h2 span { display: block; color: var(--blue); font-size: clamp(31px, 6.73vw, 96px); letter-spacing: -.06em; white-space: nowrap; }
-.footer-contact { position: absolute; right: 0; top: 0; width: 100px; height: 100px; border: 1px solid #555; border-radius: 50%; display: grid; place-items: center; align-content: center; gap: 5px; font-size: 13px; transition: background .25s, border-color .25s; }
-.footer-contact span { font-size: 18px; }
-.footer-contact:hover { background: var(--blue); border-color: var(--blue); }
+.footer-contact { margin-top: 46px; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; letter-spacing: .05em; }
 
 [data-reveal] { opacity: 0; transform: translateY(54px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.75,.2,1); }
@@ -277,16 +276,16 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   .other-work-stage { height: 390px; }
   .about { padding: 9vh 20px; grid-template-columns: 1fr; gap: 6vh; }
   .about-title h2 { margin-top: 0; font-size: 15.4vw; }
-  .about-cta { width: 100px; height: 100px; margin-top: 32px; font-size: 12px; }
+  .about-cta { margin-top: 32px; }
   .about-copy { padding: 0; }
   .about-copy > p { font-size: 18px; line-height: 1.7; }
   .about-links { grid-template-columns: 1fr; margin-top: 5vh; }
   footer { min-height: 78svh; padding: 9vh 20px 24px; }
   .footer-top p:last-child { display: none; }
-  .footer-cta { padding-bottom: 112px; }
+  .footer-cta { padding-bottom: 0; }
   .footer-cta h2 { font-size: 12.5vw; line-height: 1.16; }
   .footer-cta h2 span { font-size: 7.65vw; }
-  .footer-contact { top: auto; bottom: 0; width: 100px; height: 100px; }
+  .footer-contact { margin-top: 32px; }
   .opening-meta p { font-size: 10px; }
   .footer-row { align-items: flex-start; font-size: 10px; }
   .footer-row span:last-child { display: none; }

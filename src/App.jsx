@@ -15,6 +15,7 @@ const projects = [
 ];
 
 function Arrow({ down = false }) { return <span aria-hidden="true">{down ? "↓" : "↗"}</span>; }
+function CtaArrow() { return <img src={assetPath("carousel-next.svg")} alt="" aria-hidden="true" />; }
 
 export function App() {
   const [openProject, setOpenProject] = useState(null);
@@ -165,7 +166,7 @@ export function App() {
       <section className="about" id="about">
         <div className="about-title" data-reveal>
           <h2>懂品牌，<br />做落地的<span>设计</span></h2>
-          <button className="about-cta" onClick={openAboutPage}>点击认识我 <Arrow /></button>
+          <button className="about-cta cta-button" onClick={openAboutPage}>认识我 <CtaArrow /></button>
         </div>
         <div className="about-copy" data-reveal>
           <p><strong>工业设计背景</strong>，让我习惯从产品与用户出发思考问题；<strong>品牌设计经验</strong>，则让我更关注一套视觉如何回应业务、形成认知，并在不同触点中保持一致。</p>
@@ -182,7 +183,7 @@ export function App() {
         <div className="footer-top"><p className="en">READY FOR THE NEXT CHAPTER.</p><p>品牌策略 · 视觉识别 · 品牌应用</p></div>
         <div className="footer-cta">
           <h2>让我们一起，<br />把品牌做得更好，<br /><span>让好设计成为增长的一部分。</span></h2>
-          <a className="footer-contact" href="mailto:659965306@qq.com" aria-label="发送邮件给刘新月">联系我 <Arrow /></a>
+          <a className="footer-contact cta-button" href="mailto:659965306@qq.com" aria-label="发送邮件给刘新月">联系我 <CtaArrow /></a>
         </div>
         <div className="footer-row">
           <span>刘新月 · 品牌设计师</span><a href="tel:13857146121">13857146121（微信同号）</a><span className="en">HANGZHOU, CHINA · © 2026</span>
