@@ -44,12 +44,12 @@ img { display: block; width: 100%; }
 .opening-scroll { position: absolute; right: var(--pad); bottom: 30px; display: flex; gap: 15px; align-items: center; font-size: 9px; letter-spacing: .1em; }
 .opening-scroll span { font-size: 16px; }
 
-.manifesto { position: relative; z-index: 3; min-height: 92svh; margin-top: -18svh; padding: 12vh var(--pad) 10vh; border-top: 0; border-radius: 20px 20px 0 0; background: var(--white); color: var(--black); display: grid; grid-template-columns: minmax(160px, .85fr) minmax(0, 3.15fr); gap: 5vw; align-items: start; }
-.manifesto-side { margin: 0; padding-top: 0; font-size: 16px; line-height: 1.35; letter-spacing: .02em; }
-.manifesto-label { margin: 0 0 5vh; color: #777; font-size: 9px; letter-spacing: .11em; }
+.manifesto { position: relative; z-index: 3; min-height: 92svh; margin-top: -18svh; padding: 12vh var(--pad) 10vh; border-top: 0; border-radius: 20px 20px 0 0; background: var(--white); color: var(--black); display: block; }
+.manifesto-side { margin: 0 0 5vh; padding-top: 0; font-size: 16px; line-height: 1.35; letter-spacing: .02em; }
+.manifesto-main { width: 100%; }
 .manifesto h1 { margin: 0; font-size: clamp(52px, 6.7vw, 108px); line-height: 1.08; font-weight: 600; letter-spacing: -.065em; }
 .manifesto h1 span { color: var(--blue); }
-.manifesto-bottom { margin-top: 6vh; padding-top: 22px; border-top: 1px solid #d8d8d3; display: flex; gap: 40px; }
+.manifesto-bottom { margin-top: 5vh; padding-top: 0; border-top: 0; display: flex; gap: 40px; }
 .manifesto-bottom p { max-width: 720px; margin: 0; font-size: clamp(14px, 1vw, 16px); line-height: 1.8; }
 
 .work { padding: 8vh var(--pad); }
@@ -256,11 +256,10 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   .opening-meta { margin-left: 0; grid-template-columns: 1fr 1fr; gap: 18px; }
   .opening-meta p:nth-child(3) { display: none; }
   .opening-scroll { right: 20px; bottom: 24px; font-size: 0; }
-  .manifesto { min-height: auto; margin-top: -14svh; padding: 10vh 20px 8vh; border-radius: 16px 16px 0 0; grid-template-columns: 1fr; gap: 7vh; }
-  .manifesto-side { margin: 0; }
-  .manifesto-label { margin-bottom: 5vh; }
+  .manifesto { min-height: auto; margin-top: -14svh; padding: 10vh 20px 8vh; border-radius: 16px 16px 0 0; }
+  .manifesto-side { margin: 0 0 5vh; }
   .manifesto h1 { font-size: 13.6vw; line-height: 1.12; }
-  .manifesto-bottom { margin-top: 6vh; }
+  .manifesto-bottom { margin-top: 5vh; }
   .work { padding: 9vh 20px; }
   .section-head { grid-template-columns: 1fr; gap: 5vh; margin-bottom: 7vh; }
   .section-head h2 { font-size: 20vw; }

@@ -138,7 +138,6 @@ export function App() {
       <section className="manifesto light-panel" id="manifesto">
         <p className="manifesto-side" data-reveal>我认为的品牌设计</p>
         <div className="manifesto-main" data-reveal>
-          <p className="manifesto-label en">LIU XINYUE / BRAND DESIGNER</p>
           <h1>看懂品牌，<br />找到问题，<br />再把答案做成<span>视觉。</span></h1>
           <div className="manifesto-bottom">
             <p>对我而言，品牌设计不是从风格开始，而是从理解开始。理解产品、用户与业务目标，找到品牌真正需要解决的问题，再通过视觉方向、识别系统与应用规范，把策略转化为可感知、可识别、可落地的品牌资产。</p>

@@ -188,7 +188,7 @@ export default function DepthCarousel({
         {item.image ? <img className="depth-carousel__img" src={item.image} alt={item.alt || ""} draggable={false} /> : <span className="depth-carousel__placeholder"><b>{String(index + 1).padStart(2, "0")}</b><small>{item.label}</small></span>}
         <span className="depth-carousel__tint" ref={(element) => { overlayRefs.current[index] = element; }} style={{ background: tint }} />
         <button type="button" className="depth-carousel__zoom" aria-label={expanded && active === index ? "缩小还原" : "放大图片"} title={expanded && active === index ? "缩小还原" : "放大图片"} onClick={(event) => { event.stopPropagation(); toggleExpanded(index); }}>
-          <img src={expanded && active === index ? collapseIcon : expandIcon} alt="" aria-hidden="true" draggable={false} />
+          <span className="depth-carousel__zoom-glyph" style={{ WebkitMaskImage: `url("${expanded && active === index ? collapseIcon : expandIcon}")`, maskImage: `url("${expanded && active === index ? collapseIcon : expandIcon}")` }} aria-hidden="true" />
         </button>
       </div>)}
     </div>
@@ -198,7 +198,7 @@ export default function DepthCarousel({
       <div className="depth-carousel__lightbox-card">
         <img className="depth-carousel__lightbox-img" src={data[active]?.image} alt={data[active]?.alt || ""} draggable={false} />
         <button type="button" className="depth-carousel__zoom depth-carousel__zoom--lightbox" aria-label="缩小还原" title="缩小还原" onClick={(event) => { event.stopPropagation(); toggleExpanded(active); }}>
-          <img src={collapseIcon} alt="" aria-hidden="true" draggable={false} />
+          <span className="depth-carousel__zoom-glyph" style={{ WebkitMaskImage: `url("${collapseIcon}")`, maskImage: `url("${collapseIcon}")` }} aria-hidden="true" />
         </button>
       </div>
     </div>, document.body)}
