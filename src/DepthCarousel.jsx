@@ -11,7 +11,8 @@ export default function DepthCarousel({
   tiltDirection = "right", perspective = 1400, visibleCards = 4,
   falloff = 0.2, blur = 6, duration = 950, ease = "power3.out",
   loop = true, showControls = true, showIndicators = false, onChange,
-  autoPlay = true, autoPlayDelay = 4200, className = ""
+  autoPlay = true, autoPlayDelay = 4200, className = "",
+  expandIcon, collapseIcon
 }) {
   const data = useMemo(() => items.map(normalizeItem), [items]);
   const rootRef = useRef(null);
@@ -140,7 +141,9 @@ export default function DepthCarousel({
       {data.map((item, index) => <div key={item.label || index} className={`depth-carousel__card${active === index ? " is-active" : ""}`} ref={(element) => { cardRefs.current[index] = element; }} style={{ width: cardWidth, height: cardHeight, borderRadius: radius }} aria-roledescription="slide" aria-label={`${index + 1} / ${data.length}`} aria-hidden={active !== index}>
         {item.image ? <img className="depth-carousel__img" src={item.image} alt={item.alt || ""} draggable={false} /> : <span className="depth-carousel__placeholder"><b>{String(index + 1).padStart(2, "0")}</b><small>{item.label}</small></span>}
         <span className="depth-carousel__tint" ref={(element) => { overlayRefs.current[index] = element; }} style={{ background: tint }} />
-        <button type="button" className="depth-carousel__zoom" aria-label={expanded && active === index ? "缩小还原" : "放大图片"} title={expanded && active === index ? "缩小还原" : "放大图片"} onClick={(event) => { event.stopPropagation(); toggleExpanded(index); }}>{expanded && active === index ? "⤡" : "⤢"}</button>
+        <button type="button" className="depth-carousel__zoom" aria-label={expanded && active === index ? "缩小还原" : "放大图片"} title={expanded && active === index ? "缩小还原" : "放大图片"} onClick={(event) => { event.stopPropagation(); toggleExpanded(index); }}>
+          <img src={expanded && active === index ? collapseIcon : expandIcon} alt="" aria-hidden="true" draggable={false} />
+        </button>
       </div>)}
     </div>
     {showControls && data.length > 1 && !expanded && <><button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}>←</button><button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}>→</button></>}
