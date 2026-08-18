@@ -182,7 +182,10 @@ export function App() {
       <footer id="talk">
         <div className="footer-top"><p className="en">READY FOR THE NEXT CHAPTER.</p><p>品牌策略 · 视觉识别 · 品牌应用</p></div>
         <div className="footer-cta">
-          <h2>让我们一起，<br />把品牌做得更好，<br /><span>让好设计成为增长的一部分。</span></h2>
+          <h2>
+            <span className="footer-line footer-line-lead">让我们一起</span>
+            <span className="footer-copy">把品牌塑造得更好，<span className="footer-line-accent">让好设计成为增长的一部分。</span></span>
+          </h2>
           <a className="footer-contact cta-button" href="mailto:659965306@qq.com" aria-label="发送邮件给刘新月">联系我 <CtaArrow /></a>
         </div>
         <div className="footer-row">
