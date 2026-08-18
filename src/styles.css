@@ -85,7 +85,7 @@ img { display: block; width: 100%; }
 .other-work-head h2 { margin: 0; font-size: clamp(66px, 10vw, 162px); font-weight: 600; line-height: .78; letter-spacing: -.083em; }
 .other-work-head h2 span { color: var(--blue); }
 .other-work-head div > p { max-width: 620px; margin: 4vh 0 0; color: var(--muted); font-size: clamp(14px, 1.1vw, 17px); line-height: 1.7; }
-.other-work-stage { position: relative; height: clamp(360px, 38vw, 520px); overflow: hidden; }
+.other-work-stage { position: relative; height: clamp(430px, 42vw, 600px); overflow: hidden; }
 
 .about { padding: 9vh var(--pad); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.12fr .88fr; gap: 8vw; align-items: start; }
 .about-title h2 { margin: 5vh 0 0; font-size: clamp(52px, 6.6vw, 108px); line-height: .93; font-weight: 600; letter-spacing: -.073em; }
@@ -273,7 +273,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   .other-work { padding: 9vh 0; }
   .other-work-head { grid-template-columns: 1fr; gap: 5vh; margin: 0 20px 6vh; }
   .other-work-head h2 { font-size: 20vw; }
-  .other-work-stage { height: 390px; }
+  .other-work-stage { height: 230px; }
   .about { padding: 9vh 20px; grid-template-columns: 1fr; gap: 6vh; }
   .about-title h2 { margin-top: 0; font-size: 15.4vw; }
   .about-cta { margin-top: 32px; }

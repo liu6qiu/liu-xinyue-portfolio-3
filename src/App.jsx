@@ -230,7 +230,7 @@ function OtherWorkDemo() {
       <div><h2 className="en" id="other-work-title">OTHER<br />WORK<span>.</span></h2><p>项目经验横跨消费零售、生活方式、科技硬件与智能制造等领域。我熟悉多元视觉风格与国际设计趋势，更理解品牌定位、用户洞察与业务目标之间的核心逻辑。因此，我的经验能够跨行业迁移，让设计从视觉表达走向系统化的品牌落地。</p></div>
     </div>
     <div className="other-work-stage">
-      <DepthCarousel items={items} cardWidth={1000} cardHeight={500} radius={5} depth={105} spread={132} tilt={3} perspective={1900} visibleCards={4} falloff={0.12} blur={3.5} duration={1000} ease="power3.inOut" autoPlay autoPlayDelay={5000} loop showControls showIndicators={false} expandIcon={assetPath("carousel-expand.png")} collapseIcon={assetPath("carousel-collapse.png")} previousIcon={assetPath("carousel-prev.svg")} nextIcon={assetPath("carousel-next.svg")} />
+      <DepthCarousel items={items} cardWidth={1000} cardHeight={500} radius={5} depth={105} spread={132} tilt={3} perspective={1900} visibleCards={4} falloff={0.12} blur={3.5} duration={1000} ease="power3.inOut" autoPlay autoPlayDelay={5000} loop showControls showIndicators expandIcon={assetPath("carousel-expand.png")} collapseIcon={assetPath("carousel-collapse.png")} previousIcon={assetPath("carousel-prev.svg")} nextIcon={assetPath("carousel-next.svg")} />
     </div>
   </section>;
 }

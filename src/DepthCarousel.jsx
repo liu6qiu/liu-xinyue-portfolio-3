@@ -147,7 +147,7 @@ export default function DepthCarousel({
     const observer = new ResizeObserver(([entry]) => {
       const horizontalGutter = entry.contentRect.width <= 760 ? 40 : 32;
       const safeWidth = Math.max(entry.contentRect.width - horizontalGutter, 1);
-      const safeHeight = Math.max(entry.contentRect.height - 16, 1);
+      const safeHeight = Math.max(entry.contentRect.height - 72, 1);
       const widthScale = safeWidth / cardWidth;
       const heightScale = safeHeight / cardHeight;
       scaleRef.current = clamp(Math.min(widthScale, heightScale), 0.28, 1);
@@ -192,8 +192,11 @@ export default function DepthCarousel({
         </button>
       </div>)}
     </div>
-    {showControls && data.length > 1 && !expanded && <><button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}><img src={previousIcon} alt="" aria-hidden="true" draggable={false} /></button><button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}><img src={nextIcon} alt="" aria-hidden="true" draggable={false} /></button></>}
-    {showIndicators && <div className="depth-carousel__dots">{data.map((item, index) => <button key={item.label || index} type="button" aria-label={`转到作品 ${index + 1}`} className={`depth-carousel__dot${active === index ? " is-active" : ""}`} onClick={() => setFocus(index)} />)}</div>}
+    {showControls && data.length > 1 && !expanded && <div className="depth-carousel__controls" aria-label="轮播播放进度">
+      <button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}><img src={previousIcon} alt="" aria-hidden="true" draggable={false} /></button>
+      {showIndicators && <div className="depth-carousel__dots">{data.map((item, index) => <button key={item.label || index} type="button" aria-label={`转到作品 ${index + 1}`} aria-current={active === index ? "true" : undefined} className={`depth-carousel__dot${active === index ? " is-active" : ""}`} onClick={() => setFocus(index)} />)}</div>}
+      <button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}><img src={nextIcon} alt="" aria-hidden="true" draggable={false} /></button>
+    </div>}
     {expanded && createPortal(<div className={`depth-carousel__lightbox${closing ? " is-closing" : ""}`} style={{ "--lightbox-from-x": `${transitionOrigin.x}px`, "--lightbox-from-y": `${transitionOrigin.y}px`, "--lightbox-from-scale-x": transitionOrigin.scaleX, "--lightbox-from-scale-y": transitionOrigin.scaleY }} role="dialog" aria-modal="true" aria-label={`放大查看${data[active]?.alt ? `：${data[active].alt}` : "图片"}`} onClick={(event) => event.target === event.currentTarget && toggleExpanded(active)}>
       <div className="depth-carousel__lightbox-card">
         <img className="depth-carousel__lightbox-img" src={data[active]?.image} alt={data[active]?.alt || ""} draggable={false} />
