@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { copyFileSync, cpSync, mkdirSync, readdirSync } from "node:fs";
+import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import path from "node:path";
 
 function copyPortfolioAssets() {
@@ -11,12 +11,13 @@ function copyPortfolioAssets() {
       const assetsDir = path.join(root, "dist", "assets");
       mkdirSync(assetsDir, { recursive: true });
 
-      for (const directory of ["about", "cases"]) {
-        cpSync(path.join(root, directory), path.join(assetsDir, directory), { recursive: true });
+      const optimizedAssets = path.join(root, "assets");
+      if (existsSync(optimizedAssets)) {
+        cpSync(optimizedAssets, assetsDir, { recursive: true });
       }
 
       for (const entry of readdirSync(root, { withFileTypes: true })) {
-        if (entry.isFile() && /\.(?:png|jpe?g|webp|gif|svg|pdf)$/i.test(entry.name)) {
+        if (entry.isFile() && /\.(?:gif|svg|pdf)$/i.test(entry.name)) {
           copyFileSync(path.join(root, entry.name), path.join(assetsDir, entry.name));
         }
       }

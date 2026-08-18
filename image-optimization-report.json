@@ -1,0 +1,1086 @@
+{
+  "count": 77,
+  "before_bytes": 119698353,
+  "after_bytes": 11155540,
+  "saving_percent": 90.7,
+  "images": [
+    {
+      "source": "01-a2.png",
+      "target": "01-a2.webp",
+      "before": 7574465,
+      "after": 279302,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "02-xiancha.png",
+      "target": "02-xiancha.webp",
+      "before": 11794370,
+      "after": 313074,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "03-mamamiya.png",
+      "target": "03-mamamiya.webp",
+      "before": 8149607,
+      "after": 226826,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "04-super-syn.png",
+      "target": "04-super-syn.webp",
+      "before": 6678512,
+      "after": 154894,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "05-alusso.png",
+      "target": "05-alusso.webp",
+      "before": 9240030,
+      "after": 229384,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "06-vesta.png",
+      "target": "06-vesta.webp",
+      "before": 6568701,
+      "after": 133352,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "07-forgood.png",
+      "target": "07-forgood.webp",
+      "before": 6222263,
+      "after": 175146,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "08-huaye.png",
+      "target": "08-huaye.webp",
+      "before": 10864627,
+      "after": 334594,
+      "source_size": [
+        5120,
+        2560
+      ],
+      "output_size": [
+        2400,
+        1200
+      ]
+    },
+    {
+      "source": "about/bike-sunset.jpg",
+      "target": "about/bike-sunset.webp",
+      "before": 431757,
+      "after": 288042,
+      "source_size": [
+        1080,
+        1621
+      ],
+      "output_size": [
+        1080,
+        1621
+      ]
+    },
+    {
+      "source": "about/group-ride.jpg",
+      "target": "about/group-ride.webp",
+      "before": 120264,
+      "after": 38718,
+      "source_size": [
+        1439,
+        1080
+      ],
+      "output_size": [
+        1439,
+        1080
+      ]
+    },
+    {
+      "source": "about/hero-images-group.png",
+      "target": "about/hero-images-group.webp",
+      "before": 3200974,
+      "after": 133976,
+      "source_size": [
+        4616,
+        1552
+      ],
+      "output_size": [
+        2400,
+        807
+      ]
+    },
+    {
+      "source": "about/pilates.jpg",
+      "target": "about/pilates.webp",
+      "before": 220005,
+      "after": 73862,
+      "source_size": [
+        1080,
+        1440
+      ],
+      "output_size": [
+        1080,
+        1440
+      ]
+    },
+    {
+      "source": "about/portrait-hike.jpg",
+      "target": "about/portrait-hike.webp",
+      "before": 706600,
+      "after": 529900,
+      "source_size": [
+        1080,
+        1440
+      ],
+      "output_size": [
+        1080,
+        1440
+      ]
+    },
+    {
+      "source": "about/road-run.jpg",
+      "target": "about/road-run.webp",
+      "before": 328314,
+      "after": 210590,
+      "source_size": [
+        1080,
+        1440
+      ],
+      "output_size": [
+        1080,
+        1440
+      ]
+    },
+    {
+      "source": "about/tools-group.png",
+      "target": "about/tools-group.webp",
+      "before": 599066,
+      "after": 31986,
+      "source_size": [
+        5520,
+        320
+      ],
+      "output_size": [
+        2400,
+        139
+      ]
+    },
+    {
+      "source": "bzm-featured-cover.png",
+      "target": "bzm-featured-cover.webp",
+      "before": 1192849,
+      "after": 32328,
+      "source_size": [
+        1280,
+        640
+      ],
+      "output_size": [
+        1280,
+        640
+      ]
+    },
+    {
+      "source": "bzm-hover-cursor.png",
+      "target": "bzm-hover-cursor.webp",
+      "before": 6086,
+      "after": 2118,
+      "source_size": [
+        691,
+        249
+      ],
+      "output_size": [
+        691,
+        249
+      ]
+    },
+    {
+      "source": "carousel-collapse.png",
+      "target": "carousel-collapse.webp",
+      "before": 18415,
+      "after": 1856,
+      "source_size": [
+        1233,
+        1233
+      ],
+      "output_size": [
+        256,
+        256
+      ]
+    },
+    {
+      "source": "carousel-expand.png",
+      "target": "carousel-expand.webp",
+      "before": 12488,
+      "after": 930,
+      "source_size": [
+        1221,
+        1221
+      ],
+      "output_size": [
+        256,
+        256
+      ]
+    },
+    {
+      "source": "cases/bzm/page-05.jpg",
+      "target": "cases/bzm/page-05.webp",
+      "before": 268174,
+      "after": 121406,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-06.jpg",
+      "target": "cases/bzm/page-06.webp",
+      "before": 176838,
+      "after": 70782,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-07.jpg",
+      "target": "cases/bzm/page-07.webp",
+      "before": 36750,
+      "after": 11680,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-08.jpg",
+      "target": "cases/bzm/page-08.webp",
+      "before": 337932,
+      "after": 168892,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-09.jpg",
+      "target": "cases/bzm/page-09.webp",
+      "before": 200068,
+      "after": 80714,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-10.jpg",
+      "target": "cases/bzm/page-10.webp",
+      "before": 286507,
+      "after": 140204,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-11.jpg",
+      "target": "cases/bzm/page-11.webp",
+      "before": 342863,
+      "after": 188792,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-12.jpg",
+      "target": "cases/bzm/page-12.webp",
+      "before": 227860,
+      "after": 109750,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-13.jpg",
+      "target": "cases/bzm/page-13.webp",
+      "before": 159050,
+      "after": 65322,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-14.jpg",
+      "target": "cases/bzm/page-14.webp",
+      "before": 257623,
+      "after": 142728,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-15.jpg",
+      "target": "cases/bzm/page-15.webp",
+      "before": 186742,
+      "after": 61006,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-16.jpg",
+      "target": "cases/bzm/page-16.webp",
+      "before": 376281,
+      "after": 184610,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-17.jpg",
+      "target": "cases/bzm/page-17.webp",
+      "before": 295992,
+      "after": 160384,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-18.jpg",
+      "target": "cases/bzm/page-18.webp",
+      "before": 316614,
+      "after": 148220,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-19.jpg",
+      "target": "cases/bzm/page-19.webp",
+      "before": 472826,
+      "after": 287938,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-20.jpg",
+      "target": "cases/bzm/page-20.webp",
+      "before": 348487,
+      "after": 191340,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-21.jpg",
+      "target": "cases/bzm/page-21.webp",
+      "before": 334274,
+      "after": 171484,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-22.jpg",
+      "target": "cases/bzm/page-22.webp",
+      "before": 298125,
+      "after": 149774,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-23.jpg",
+      "target": "cases/bzm/page-23.webp",
+      "before": 233019,
+      "after": 101900,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/bzm/page-24.jpg",
+      "target": "cases/bzm/page-24.webp",
+      "before": 199233,
+      "after": 72310,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-26.jpg",
+      "target": "cases/jsc/page-26.webp",
+      "before": 285095,
+      "after": 127916,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-27.jpg",
+      "target": "cases/jsc/page-27.webp",
+      "before": 255969,
+      "after": 86284,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-28.jpg",
+      "target": "cases/jsc/page-28.webp",
+      "before": 152226,
+      "after": 62964,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-29.jpg",
+      "target": "cases/jsc/page-29.webp",
+      "before": 317590,
+      "after": 174440,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-30.jpg",
+      "target": "cases/jsc/page-30.webp",
+      "before": 118662,
+      "after": 47246,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-31.jpg",
+      "target": "cases/jsc/page-31.webp",
+      "before": 218050,
+      "after": 104568,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-32.jpg",
+      "target": "cases/jsc/page-32.webp",
+      "before": 263576,
+      "after": 148720,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-33.jpg",
+      "target": "cases/jsc/page-33.webp",
+      "before": 328740,
+      "after": 183472,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-34.jpg",
+      "target": "cases/jsc/page-34.webp",
+      "before": 224482,
+      "after": 78374,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-35.jpg",
+      "target": "cases/jsc/page-35.webp",
+      "before": 379773,
+      "after": 205648,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-36.jpg",
+      "target": "cases/jsc/page-36.webp",
+      "before": 242024,
+      "after": 104926,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-37.jpg",
+      "target": "cases/jsc/page-37.webp",
+      "before": 242054,
+      "after": 115302,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-38.jpg",
+      "target": "cases/jsc/page-38.webp",
+      "before": 272923,
+      "after": 132446,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-39.jpg",
+      "target": "cases/jsc/page-39.webp",
+      "before": 214113,
+      "after": 99958,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-40.jpg",
+      "target": "cases/jsc/page-40.webp",
+      "before": 99620,
+      "after": 28388,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-41.jpg",
+      "target": "cases/jsc/page-41.webp",
+      "before": 388963,
+      "after": 222712,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-42.jpg",
+      "target": "cases/jsc/page-42.webp",
+      "before": 223693,
+      "after": 109980,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-43.jpg",
+      "target": "cases/jsc/page-43.webp",
+      "before": 340990,
+      "after": 186458,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-44.jpg",
+      "target": "cases/jsc/page-44.webp",
+      "before": 231053,
+      "after": 99278,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-45.jpg",
+      "target": "cases/jsc/page-45.webp",
+      "before": 295795,
+      "after": 152902,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-46.jpg",
+      "target": "cases/jsc/page-46.webp",
+      "before": 381483,
+      "after": 257592,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-47.jpg",
+      "target": "cases/jsc/page-47.webp",
+      "before": 269939,
+      "after": 128756,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-48.jpg",
+      "target": "cases/jsc/page-48.webp",
+      "before": 128703,
+      "after": 37378,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-49.jpg",
+      "target": "cases/jsc/page-49.webp",
+      "before": 409940,
+      "after": 276834,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-50.jpg",
+      "target": "cases/jsc/page-50.webp",
+      "before": 175691,
+      "after": 71012,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/jsc/page-51.jpg",
+      "target": "cases/jsc/page-51.webp",
+      "before": 318147,
+      "after": 165868,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-53.jpg",
+      "target": "cases/soniq/page-53.webp",
+      "before": 258597,
+      "after": 115362,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-54.jpg",
+      "target": "cases/soniq/page-54.webp",
+      "before": 330412,
+      "after": 192384,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-55.jpg",
+      "target": "cases/soniq/page-55.webp",
+      "before": 275836,
+      "after": 161230,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-56.jpg",
+      "target": "cases/soniq/page-56.webp",
+      "before": 310340,
+      "after": 159258,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-57.jpg",
+      "target": "cases/soniq/page-57.webp",
+      "before": 253088,
+      "after": 137252,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-58.jpg",
+      "target": "cases/soniq/page-58.webp",
+      "before": 250480,
+      "after": 128588,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-59.jpg",
+      "target": "cases/soniq/page-59.webp",
+      "before": 270878,
+      "after": 131092,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "cases/soniq/page-60.jpg",
+      "target": "cases/soniq/page-60.webp",
+      "before": 326782,
+      "after": 192500,
+      "source_size": [
+        2134,
+        1067
+      ],
+      "output_size": [
+        2134,
+        1067
+      ]
+    },
+    {
+      "source": "jsc-featured-cover.png",
+      "target": "jsc-featured-cover.webp",
+      "before": 11695539,
+      "after": 178530,
+      "source_size": [
+        5040,
+        5040
+      ],
+      "output_size": [
+        2400,
+        2400
+      ]
+    },
+    {
+      "source": "jsc-hover-cursor.png",
+      "target": "jsc-hover-cursor.webp",
+      "before": 58404,
+      "after": 13332,
+      "source_size": [
+        5054,
+        896
+      ],
+      "output_size": [
+        1200,
+        213
+      ]
+    },
+    {
+      "source": "soniq-featured-cover.png",
+      "target": "soniq-featured-cover.webp",
+      "before": 19569073,
+      "after": 479178,
+      "source_size": [
+        5120,
+        5120
+      ],
+      "output_size": [
+        2400,
+        2400
+      ]
+    },
+    {
+      "source": "soniq-hover-cursor.png",
+      "target": "soniq-hover-cursor.webp",
+      "before": 34979,
+      "after": 37298,
+      "source_size": [
+        1537,
+        564
+      ],
+      "output_size": [
+        1200,
+        440
+      ]
+    }
+  ]
+}

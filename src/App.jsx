@@ -6,12 +6,12 @@ const pagePath = (path = "") => `${basePath}${path.replace(/^\/+/, "")}`;
 const assetPath = (path) => pagePath(`assets/${path.replace(/^\/+/, "")}`);
 
 const casePages = (folder, start, end) =>
-  Array.from({ length: end - start + 1 }, (_, index) => assetPath(`cases/${folder}/page-${String(start + index).padStart(2, "0")}.jpg`));
+  Array.from({ length: end - start + 1 }, (_, index) => assetPath(`cases/${folder}/page-${String(start + index).padStart(2, "0")}.webp`));
 
 const projects = [
-  { id: "bzm", no: "01", title: "BZM.", subtitle: "让多元户外场景拥有统一表达", scope: "以“连接户外与生活”为核心，统一多品类、多渠道视觉表达", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "应用延展", "社媒KV", "活动物料"], cover: assetPath("bzm-featured-cover.png"), cursor: assetPath("bzm-hover-cursor.png"), color: "#315cff", gallery: casePages("bzm", 5, 24) },
-  { id: "jsc", no: "02", title: "JSC EXP", subtitle: "打破制造品牌的传统边界", scope: "重构品牌定位与视觉语言，推动企业从代工走向自主品牌", logoHeight: "80px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌升级", "VI规范", "包装设计", "应用延展", "空间展厅"], cover: assetPath("jsc-featured-cover.png"), coverPosition: "center bottom", cursor: assetPath("jsc-hover-cursor.png"), color: "#2ce0aa", gallery: casePages("jsc", 26, 51) },
-  { id: "soniq", no: "03", title: "SONIQ", subtitle: "品牌主张的IP化识别", scope: "以功能、态度与识别度，塑造新一代户外服饰品牌", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "服装图案", "包装设计", "社媒KV"], cover: assetPath("soniq-featured-cover.png"), cursor: assetPath("soniq-hover-cursor.png"), color: "#f7f7f2", gallery: casePages("soniq", 53, 60) },
+  { id: "bzm", no: "01", title: "BZM.", subtitle: "让多元户外场景拥有统一表达", scope: "以“连接户外与生活”为核心，统一多品类、多渠道视觉表达", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "应用延展", "社媒KV", "活动物料"], cover: assetPath("bzm-featured-cover.webp"), cursor: assetPath("bzm-hover-cursor.webp"), color: "#315cff", gallery: casePages("bzm", 5, 24) },
+  { id: "jsc", no: "02", title: "JSC EXP", subtitle: "打破制造品牌的传统边界", scope: "重构品牌定位与视觉语言，推动企业从代工走向自主品牌", logoHeight: "80px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌升级", "VI规范", "包装设计", "应用延展", "空间展厅"], cover: assetPath("jsc-featured-cover.webp"), coverPosition: "center bottom", cursor: assetPath("jsc-hover-cursor.webp"), color: "#2ce0aa", gallery: casePages("jsc", 26, 51) },
+  { id: "soniq", no: "03", title: "SONIQ", subtitle: "品牌主张的IP化识别", scope: "以功能、态度与识别度，塑造新一代户外服饰品牌", logoHeight: "150px", deliverables: ["品牌定位", "品牌命名", "品牌口号", "品牌设计", "VI规范", "服装图案", "包装设计", "社媒KV"], cover: assetPath("soniq-featured-cover.webp"), cursor: assetPath("soniq-hover-cursor.webp"), color: "#f7f7f2", gallery: casePages("soniq", 53, 60) },
 ];
 
 function Arrow({ down = false }) { return <span aria-hidden="true">{down ? "↓" : "↗"}</span>; }
@@ -201,7 +201,7 @@ export function App() {
       <div className="case-scroll">
         <section className="case-opening" style={{ "--case-accent": project.color, "--case-logo-height": project.logoHeight }}>
           <div className="case-opening-top"><span className="en">CASE.{project.no}</span><span className="en">SELECTED WORK / 2026</span></div>
-          <div className="case-opening-logo"><img src={project.cursor} alt={`${project.title} Logo`} /></div>
+          <div className="case-opening-logo"><img decoding="async" src={project.cursor} alt={`${project.title} Logo`} /></div>
           <div className="case-opening-bottom">
             <div className="case-opening-copy"><h2>{project.subtitle}</h2><p>{project.scope}</p></div>
             <div><small className="en">PROJECT CONTENT</small><ul>{project.deliverables.map((item) => <li key={item}>{item}</li>)}</ul></div>
@@ -219,14 +219,14 @@ export function App() {
 
 function OtherWorkDemo() {
   const items = [
-    { image: assetPath("01-a2.png"), label: "OTHER WORK 01", alt: "其他作品 01：A2" },
-    { image: assetPath("02-xiancha.png"), label: "OTHER WORK 02", alt: "其他作品 02：鲜茶" },
-    { image: assetPath("03-mamamiya.png"), label: "OTHER WORK 03", alt: "其他作品 03：Mamamiya" },
-    { image: assetPath("04-super-syn.png"), label: "OTHER WORK 04", alt: "其他作品 04：Super Syn" },
-    { image: assetPath("05-alusso.png"), label: "OTHER WORK 05", alt: "其他作品 05：Alusso" },
-    { image: assetPath("06-vesta.png"), label: "OTHER WORK 06", alt: "其他作品 06：Vesta" },
-    { image: assetPath("07-forgood.png"), label: "OTHER WORK 07", alt: "其他作品 07：Forgood" },
-    { image: assetPath("08-huaye.png"), label: "OTHER WORK 08", alt: "其他作品 08：Huaye" },
+    { image: assetPath("01-a2.webp"), label: "OTHER WORK 01", alt: "其他作品 01：A2" },
+    { image: assetPath("02-xiancha.webp"), label: "OTHER WORK 02", alt: "其他作品 02：鲜茶" },
+    { image: assetPath("03-mamamiya.webp"), label: "OTHER WORK 03", alt: "其他作品 03：Mamamiya" },
+    { image: assetPath("04-super-syn.webp"), label: "OTHER WORK 04", alt: "其他作品 04：Super Syn" },
+    { image: assetPath("05-alusso.webp"), label: "OTHER WORK 05", alt: "其他作品 05：Alusso" },
+    { image: assetPath("06-vesta.webp"), label: "OTHER WORK 06", alt: "其他作品 06：Vesta" },
+    { image: assetPath("07-forgood.webp"), label: "OTHER WORK 07", alt: "其他作品 07：Forgood" },
+    { image: assetPath("08-huaye.webp"), label: "OTHER WORK 08", alt: "其他作品 08：Huaye" },
   ];
 
   return <section className="other-work" aria-labelledby="other-work-title">
@@ -235,7 +235,7 @@ function OtherWorkDemo() {
       <div><h2 className="en" id="other-work-title">OTHER<br />WORK<span>.</span></h2><p>项目经验横跨消费零售、生活方式、科技硬件与智能制造等领域。我熟悉多元视觉风格与国际设计趋势，更理解品牌定位、用户洞察与业务目标之间的核心逻辑。因此，我的经验能够跨行业迁移，让设计从视觉表达走向系统化的品牌落地。</p></div>
     </div>
     <div className="other-work-stage">
-      <DepthCarousel items={items} cardWidth={1000} cardHeight={500} radius={5} depth={105} spread={132} tilt={3} perspective={1900} visibleCards={4} falloff={0.12} blur={3.5} duration={1000} ease="power3.inOut" autoPlay autoPlayDelay={5000} loop showControls showIndicators expandIcon={assetPath("carousel-expand.png")} collapseIcon={assetPath("carousel-collapse.png")} previousIcon={assetPath("carousel-prev.svg")} nextIcon={assetPath("carousel-next.svg")} />
+      <DepthCarousel items={items} cardWidth={1000} cardHeight={500} radius={5} depth={105} spread={132} tilt={3} perspective={1900} visibleCards={4} falloff={0.12} blur={3.5} duration={1000} ease="power3.inOut" autoPlay autoPlayDelay={5000} loop showControls showIndicators expandIcon={assetPath("carousel-expand.webp")} collapseIcon={assetPath("carousel-collapse.webp")} previousIcon={assetPath("carousel-prev.svg")} nextIcon={assetPath("carousel-next.svg")} />
     </div>
   </section>;
 }
@@ -252,7 +252,7 @@ function AboutPage({ onClose }) {
         </div>
         <div className="profile-demo-images profile-marquee" aria-label="工作与学习现场">
           <div className="profile-marquee-track">
-            {[0, 1].map((copy) => <div className="profile-marquee-group profile-hero-image-group" key={copy} aria-hidden={copy === 1}><img src={assetPath("about/hero-images-group.png")} alt={copy === 0 ? "工作与学习现场" : ""} /></div>)}
+            {[0, 1].map((copy) => <div className="profile-marquee-group profile-hero-image-group" key={copy} aria-hidden={copy === 1}><img loading="lazy" decoding="async" src={assetPath("about/hero-images-group.webp")} alt={copy === 0 ? "工作与学习现场" : ""} /></div>)}
           </div>
         </div>
       </section>
@@ -271,7 +271,7 @@ function AboutPage({ onClose }) {
           <div className="profile-demo-skill-list"><p>本命工具（日常中最常用的设计工具）　｜ <b>FIGMA</b></p><p>专业设计　｜ <b>PS、AI</b></p><p>动效及剪辑　｜ <b>AE、PR、剪映</b></p><p>建模及渲染　｜ <b>RHINO、KEYSHOT、C4D</b></p><p>AIGC　｜ <b>CODEX、GEMINI、MIDJOURNEY</b></p></div>
           <div className="profile-demo-tools profile-marquee" aria-label="常用设计软件">
             <div className="profile-marquee-track">
-              {[0, 1].map((copy) => <div className="profile-marquee-group profile-tool-group" key={copy} aria-hidden={copy === 1}><img src={assetPath("about/tools-group.png")} alt={copy === 0 ? "常用设计软件与 AI 工具" : ""} /></div>)}
+              {[0, 1].map((copy) => <div className="profile-marquee-group profile-tool-group" key={copy} aria-hidden={copy === 1}><img loading="lazy" decoding="async" src={assetPath("about/tools-group.webp")} alt={copy === 0 ? "常用设计软件与 AI 工具" : ""} /></div>)}
             </div>
           </div>
         </div>
@@ -282,7 +282,7 @@ function AboutPage({ onClose }) {
         <div className="profile-demo-section-body"><p className="profile-demo-daily-copy">骑行、徒步、普拉提、扫街，给爱猫铲屎，<br />对很多事情充满好奇与兴趣，爱玩也爱冲。</p></div>
         <div className="profile-demo-daily-images profile-marquee" aria-label="日常生活影像">
           <div className="profile-marquee-track">
-            {[0, 1].map((copy) => <div className="profile-marquee-group profile-daily-image-group" key={copy} aria-hidden={copy === 1}>{[["portrait-hike.jpg","徒步"],["bike-sunset.jpg","骑行"],["group-ride.jpg","结伴骑行"],["pilates.jpg","普拉提"],["road-run.jpg","户外运动"]].map(([name, alt]) => <img key={`${copy}-${name}`} src={assetPath(`about/${name}`)} alt={copy === 0 ? alt : ''} />)}</div>)}
+            {[0, 1].map((copy) => <div className="profile-marquee-group profile-daily-image-group" key={copy} aria-hidden={copy === 1}>{[["portrait-hike.webp","徒步"],["bike-sunset.webp","骑行"],["group-ride.webp","结伴骑行"],["pilates.webp","普拉提"],["road-run.webp","户外运动"]].map(([name, alt]) => <img key={`${copy}-${name}`} loading="lazy" decoding="async" src={assetPath(`about/${name}`)} alt={copy === 0 ? alt : ''} />)}</div>)}
           </div>
         </div>
       </section>
@@ -302,7 +302,7 @@ function AboutPage({ onClose }) {
 function ProjectCard({ item, className = "", onOpen, onMove }) {
   return <article className={`project-card ${className}`} data-reveal>
     <button className="project-media" onClick={() => onOpen(item.id)} onPointerMove={onMove} aria-label={`查看 ${item.title} 项目`}>
-      <img src={item.cover} alt={`${item.title} 品牌项目封面`} style={item.coverPosition ? { objectPosition: item.coverPosition } : undefined} />
+      <img loading="lazy" decoding="async" src={item.cover} alt={`${item.title} 品牌项目封面`} style={item.coverPosition ? { objectPosition: item.coverPosition } : undefined} />
       {item.cursor
         ? <span className="view-pill view-pill-brand"><img src={item.cursor} alt="" /></span>
         : <span className="view-pill en">VIEW <Arrow /></span>}
