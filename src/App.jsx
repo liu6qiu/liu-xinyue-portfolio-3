@@ -151,7 +151,7 @@ export function App() {
           <p>我的精选作品</p>
           <div>
             <h2 className="en">SELECTED<br />WORK<span>.</span></h2>
-            <p className="work-intro">我从众多项目中筛选了三个项目，三种不同的品牌命题。从户外新品牌的从0到1、传统制造企业的品牌升级，到山野机能品牌的概念提案，呈现我如何拆解问题、建立方向，并将视觉落到真实的品牌触点。</p>
+            <p className="work-intro">我从过往项目中筛选出三个代表性案例，分别对应新品牌起盘、传统品牌破界，两类不同的品牌课题。以此呈现我拆解核心问题、锚定策略方向、将视觉落地至真实品牌触点的全链路设计能力。</p>
           </div>
         </div>
         <div className="work-grid">
