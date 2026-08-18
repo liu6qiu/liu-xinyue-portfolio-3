@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
 import "./DepthCarousel.css";
 
@@ -21,11 +22,14 @@ export default function DepthCarousel({
   const posRef = useRef(0);
   const focusRef = useRef(0);
   const tweenRef = useRef(null);
+  const closeTimerRef = useRef(null);
   const scaleRef = useRef(1);
   const reducedRef = useRef(false);
   const onChangeRef = useRef(onChange);
   const [active, setActive] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const [transitionOrigin, setTransitionOrigin] = useState({ x: 0, y: 0, scaleX: 0.78, scaleY: 0.78 });
   const [manualReset, setManualReset] = useState(0);
   const configRef = useRef({});
 
@@ -107,13 +111,34 @@ export default function DepthCarousel({
   const toggleExpanded = useCallback((index = focusRef.current) => {
     tweenRef.current?.kill();
     if (!expanded) {
+      const card = cardRefs.current[index];
+      if (card) {
+        const rect = card.getBoundingClientRect();
+        const targetWidth = Math.min(1280, Math.max(280, window.innerWidth - 40));
+        const targetHeight = targetWidth / 2;
+        setTransitionOrigin({
+          x: rect.left + rect.width / 2 - window.innerWidth / 2,
+          y: rect.top + rect.height / 2 - window.innerHeight / 2,
+          scaleX: rect.width / targetWidth,
+          scaleY: rect.height / targetHeight,
+        });
+      }
       setFocus(index, false);
+      setClosing(false);
       setExpanded(true);
-    } else {
-      setExpanded(false);
+    } else if (!closing) {
+      const finishClose = () => {
+        setExpanded(false);
+        setClosing(false);
+      };
+      if (reducedRef.current) finishClose();
+      else {
+        setClosing(true);
+        closeTimerRef.current = window.setTimeout(finishClose, 560);
+      }
     }
     setManualReset((value) => value + 1);
-  }, [expanded, setFocus]);
+  }, [closing, expanded, setFocus]);
 
   useEffect(() => {
     reducedRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -134,9 +159,23 @@ export default function DepthCarousel({
     const timer = window.setTimeout(() => navigateBy(1), autoPlayDelay);
     return () => window.clearTimeout(timer);
   }, [autoPlay, autoPlayDelay, active, data.length, expanded, manualReset, navigateBy]);
-  useEffect(() => () => { tweenRef.current?.kill(); }, []);
+  useEffect(() => {
+    if (!expanded) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (event) => event.key === "Escape" && toggleExpanded(active);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [active, expanded, toggleExpanded]);
+  useEffect(() => () => {
+    tweenRef.current?.kill();
+    window.clearTimeout(closeTimerRef.current);
+  }, []);
 
-  return <div ref={rootRef} className={`depth-carousel${expanded ? " is-expanded" : ""} ${className}`.trim()} style={{ "--dc-perspective": `${perspective}px` }} role="group" aria-roledescription="carousel" aria-label="其他作品轮播">
+  return <div ref={rootRef} className={`depth-carousel ${className}`.trim()} style={{ "--dc-perspective": `${perspective}px` }} role="group" aria-roledescription="carousel" aria-label="其他作品轮播">
     <div className="depth-carousel__stage">
       {data.map((item, index) => <div key={item.label || index} className={`depth-carousel__card${active === index ? " is-active" : ""}`} ref={(element) => { cardRefs.current[index] = element; }} style={{ width: cardWidth, height: cardHeight, borderRadius: radius }} aria-roledescription="slide" aria-label={`${index + 1} / ${data.length}`} aria-hidden={active !== index}>
         {item.image ? <img className="depth-carousel__img" src={item.image} alt={item.alt || ""} draggable={false} /> : <span className="depth-carousel__placeholder"><b>{String(index + 1).padStart(2, "0")}</b><small>{item.label}</small></span>}
@@ -148,5 +187,13 @@ export default function DepthCarousel({
     </div>
     {showControls && data.length > 1 && !expanded && <><button type="button" className="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="上一个作品" onClick={() => navigateBy(-1, true)}>←</button><button type="button" className="depth-carousel__arrow depth-carousel__arrow--next" aria-label="下一个作品" onClick={() => navigateBy(1, true)}>→</button></>}
     {showIndicators && <div className="depth-carousel__dots">{data.map((item, index) => <button key={item.label || index} type="button" aria-label={`转到作品 ${index + 1}`} className={`depth-carousel__dot${active === index ? " is-active" : ""}`} onClick={() => setFocus(index)} />)}</div>}
+    {expanded && createPortal(<div className={`depth-carousel__lightbox${closing ? " is-closing" : ""}`} style={{ "--lightbox-from-x": `${transitionOrigin.x}px`, "--lightbox-from-y": `${transitionOrigin.y}px`, "--lightbox-from-scale-x": transitionOrigin.scaleX, "--lightbox-from-scale-y": transitionOrigin.scaleY }} role="dialog" aria-modal="true" aria-label={`放大查看${data[active]?.alt ? `：${data[active].alt}` : "图片"}`} onClick={(event) => event.target === event.currentTarget && toggleExpanded(active)}>
+      <div className="depth-carousel__lightbox-card">
+        <img className="depth-carousel__lightbox-img" src={data[active]?.image} alt={data[active]?.alt || ""} draggable={false} />
+        <button type="button" className="depth-carousel__zoom depth-carousel__zoom--lightbox" aria-label="缩小还原" title="缩小还原" onClick={(event) => { event.stopPropagation(); toggleExpanded(active); }}>
+          <img src={collapseIcon} alt="" aria-hidden="true" draggable={false} />
+        </button>
+      </div>
+    </div>, document.body)}
   </div>;
 }
