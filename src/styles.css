@@ -192,7 +192,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
 .profile-demo-hi h1 span { color: var(--blue); }
 .profile-demo-intro { width: 64%; margin: 92px 0 0 auto; display: grid; gap: 56px; }
 .profile-demo-intro article h2 { margin: 0 0 8px; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.15; }
-.profile-demo-intro article p { margin: 0; color: #929292; font-size: clamp(14px, 1.45vw, 19px); line-height: 1.55; }
+.profile-demo-intro article p { margin: 0; color: #929292; font-size: var(--copy-font-size); line-height: 1.55; }
 .profile-marquee { overflow: hidden; }
 .profile-marquee-track { display: flex; width: max-content; will-change: transform; animation: profile-marquee-left 36s linear infinite; }
 .profile-marquee-group { flex: 0 0 auto; width: max-content; box-sizing: border-box; }
@@ -206,8 +206,8 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
 .profile-demo-experience article { padding: 0 0 58px; margin-bottom: 54px; border-bottom: 1px solid #444; }
 .profile-demo-job-head { display: grid; grid-template-columns: 1fr 170px; gap: 25px; }
 .profile-demo-job-head h3, .profile-demo-job-head strong { margin: 0; font-size: clamp(21px, 2.25vw, 30px); font-weight: 500; }
-.profile-demo-experience time { display: block; margin: 28px 0; color: #555; font-size: 16px; }
-.profile-demo-experience article p { max-width: 780px; margin: 0; color: #666; font-size: clamp(14px, 1.4vw, 18px); line-height: 1.7; }
+.profile-demo-experience time { display: block; margin: 28px 0; color: #929292; font-size: var(--copy-font-size); }
+.profile-demo-experience article p { max-width: 780px; margin: 0; color: #929292; font-size: var(--copy-font-size); line-height: 1.7; }
 .profile-demo-experience article p b { color: #ddd; }
 .profile-demo-skills { min-height: 680px; }
 .profile-demo-skill-list p { margin: 0; color: #999; font-size: clamp(21px, 2.2vw, 30px); line-height: 1.2; }
@@ -217,7 +217,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
 .profile-tool-group { padding: 0 4vw; display: flex; align-items: center; }
 .profile-tool-group img { display: block; width: auto; height: clamp(64px, 6.25vw, 80px); flex: 0 0 auto; object-fit: contain; }
 .profile-demo-daily { height: 600px; min-height: 600px; padding-top: 40px; padding-bottom: 40px; grid-template-rows: auto 1fr; overflow: hidden; }
-.profile-demo-daily-copy { margin: 0; color: #aaa; font-size: clamp(23px, 2.3vw, 31px); line-height: 1.22; }
+.profile-demo-daily-copy { margin: 0; color: #929292; font-size: var(--copy-font-size); line-height: 1.22; }
 .profile-demo-daily-images { grid-column: 1 / -1; width: 100vw; margin: 110px 0 0 calc(clamp(36px, 6.4vw, 82px) * -1); }
 .profile-demo-daily-images .profile-marquee-track { animation-duration: 38s; }
 .profile-daily-image-group { height: 430px; padding: 0 6vw; display: flex; gap: 9vw; align-items: flex-start; }
@@ -335,7 +335,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   .profile-demo-hi h1 { font-size: 13vw; }
   .profile-demo-intro { width: 100%; margin-top: 70px; gap: 38px; }
   .profile-demo-intro article h2 { font-size: 8vw; }
-  .profile-demo-intro article p { font-size: 15px; }
+  .profile-demo-intro article p { font-size: var(--copy-font-size); }
   .profile-demo-images { width: 100vw; height: 310px; margin: 70px 0 0 -20px; }
   .profile-hero-image-group { height: 310px; padding: 0 28px; }
   .profile-hero-image-group img { width: auto; height: 310px; }
@@ -344,14 +344,14 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   .profile-demo-experience { min-height: auto; }
   .profile-demo-job-head { grid-template-columns: 1fr; }
   .profile-demo-job-head h3, .profile-demo-job-head strong { font-size: 22px; }
-  .profile-demo-experience article p { font-size: 14px; }
+  .profile-demo-experience article p { font-size: var(--copy-font-size); }
   .profile-demo-skills { min-height: auto; }
   .profile-demo-skill-list p { margin-bottom: 8px; font-size: 18px; line-height: 1.35; }
   .profile-demo-tools { width: 100vw; margin: 45px 0 0 -20px; }
   .profile-tool-group { padding: 0 28px; }
   .profile-tool-group img { width: auto; height: 64px; }
   .profile-demo-daily { min-height: auto; }
-  .profile-demo-daily-copy { font-size: 19px; }
+  .profile-demo-daily-copy { font-size: var(--copy-font-size); }
   .profile-demo-daily-images { width: 100vw; margin: 55px 0 0 -20px; }
   .profile-daily-image-group { height: 360px; padding: 0 28px; gap: 24vw; }
   .profile-daily-image-group img:nth-child(1) { width: 42vw; }
