@@ -151,6 +151,9 @@ export default function DepthCarousel({
       const widthScale = safeWidth / cardWidth;
       const heightScale = safeHeight / cardHeight;
       scaleRef.current = clamp(Math.min(widthScale, heightScale), 0.28, 1);
+      const controlInset = entry.contentRect.width <= 760 ? 12 : 14;
+      root.style.setProperty("--dc-control-inverse-scale", String(1 / scaleRef.current));
+      root.style.setProperty("--dc-control-offset", `${controlInset / scaleRef.current}px`);
       layout(posRef.current);
     });
     observer.observe(root);
