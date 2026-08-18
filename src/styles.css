@@ -210,7 +210,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
 .profile-demo-experience article p { max-width: 780px; margin: 0; color: #929292; font-size: var(--copy-font-size); line-height: 1.7; }
 .profile-demo-experience article p b { color: #ddd; }
 .profile-demo-skills { min-height: 680px; }
-.profile-demo-skill-list p { margin: 0; color: #999; font-size: clamp(21px, 2.2vw, 30px); line-height: 1.2; }
+.profile-demo-skill-list p { margin: 0; color: #999; font-size: var(--copy-font-size); line-height: 1.2; }
 .profile-demo-skill-list b { color: #fff; font-weight: 700; }
 .profile-demo-tools { width: 100vw; margin: 100px 0 0 -32.5vw; }
 .profile-demo-tools .profile-marquee-track { animation-duration: 42s; }
@@ -346,7 +346,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   .profile-demo-job-head h3, .profile-demo-job-head strong { font-size: 22px; }
   .profile-demo-experience article p { font-size: var(--copy-font-size); }
   .profile-demo-skills { min-height: auto; }
-  .profile-demo-skill-list p { margin-bottom: 8px; font-size: 18px; line-height: 1.35; }
+  .profile-demo-skill-list p { margin-bottom: 8px; font-size: var(--copy-font-size); line-height: 1.35; }
   .profile-demo-tools { width: 100vw; margin: 45px 0 0 -20px; }
   .profile-tool-group { padding: 0 28px; }
   .profile-tool-group img { width: auto; height: 64px; }
