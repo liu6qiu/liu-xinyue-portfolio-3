@@ -114,7 +114,7 @@ export default function DepthCarousel({
       const card = cardRefs.current[index];
       if (card) {
         const rect = card.getBoundingClientRect();
-        const targetWidth = Math.min(1280, Math.max(280, window.innerWidth - 40));
+        const targetWidth = Math.min(1280, Math.max(280, window.innerWidth - 40), Math.max(280, (window.innerHeight - 40) * 2));
         const targetHeight = targetWidth / 2;
         setTransitionOrigin({
           x: rect.left + rect.width / 2 - window.innerWidth / 2,
@@ -145,8 +145,12 @@ export default function DepthCarousel({
     const root = rootRef.current;
     if (!root) return undefined;
     const observer = new ResizeObserver(([entry]) => {
-      const needed = cardWidth + 40;
-      scaleRef.current = clamp(entry.contentRect.width / needed, 0.4, 1);
+      const horizontalGutter = entry.contentRect.width <= 760 ? 40 : 32;
+      const safeWidth = Math.max(entry.contentRect.width - horizontalGutter, 1);
+      const safeHeight = Math.max(entry.contentRect.height - 16, 1);
+      const widthScale = safeWidth / cardWidth;
+      const heightScale = safeHeight / cardHeight;
+      scaleRef.current = clamp(Math.min(widthScale, heightScale), 0.28, 1);
       layout(posRef.current);
     });
     observer.observe(root);
