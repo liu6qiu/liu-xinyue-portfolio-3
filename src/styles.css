@@ -104,9 +104,8 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
 .footer-top { display: flex; justify-content: space-between; gap: 40px; }
 .footer-top p { margin: 0; color: var(--muted); font-size: 9px; letter-spacing: .11em; }
 .footer-cta { position: relative; display: flex; flex-direction: column; align-items: flex-start; }
-.footer-cta h2 { width: 100%; margin: 0; font-size: clamp(56px, 7.8vw, 126px); line-height: 1.08; font-weight: 600; letter-spacing: -.065em; }
-.footer-cta h2 .footer-line-lead { display: block; }
-.footer-cta h2 .footer-copy { display: block; text-align: justify; text-align-last: left; }
+.footer-cta h2 { width: 100%; margin: 0; font-size: clamp(52px, 6.7vw, 108px); line-height: 1.08; font-weight: 600; letter-spacing: -.065em; text-align: left; }
+.footer-cta h2 .footer-line { display: block; white-space: nowrap; }
 .footer-cta h2 .footer-line-accent { color: var(--blue); }
 .footer-contact { margin-top: 46px; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; letter-spacing: .05em; }
@@ -285,7 +284,7 @@ footer { min-height: 84svh; padding: 10vh var(--pad) 30px; border-top: 1px solid
   footer { min-height: 78svh; padding: 9vh 20px 24px; }
   .footer-top p:last-child { display: none; }
   .footer-cta { padding-bottom: 0; }
-  .footer-cta h2 { font-size: 12.5vw; line-height: 1.16; }
+  .footer-cta h2 { font-size: min(13.6vw, calc((100vw - 40px) / 8.45)); line-height: 1.12; }
   .footer-contact { margin-top: 32px; }
   .opening-meta p { font-size: 10px; }
   .footer-row { align-items: flex-start; font-size: 10px; }
